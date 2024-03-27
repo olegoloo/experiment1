@@ -1,0 +1,14 @@
+{{ block title }}
+    Результат группы
+{{ endblock }}
+
+{% block content %}
+<div class="card" style="width: 60rem;">
+    <div class="card-header">
+    Суммарные пожертвования всех доноров составили ${{ group.sum_offer }}. {{group.ost}}
+    </div>
+        <ul class="list-group list-group-flush">
+        <li class="list-group-item"> {{ group.results }} </li>
+        </ul>
+</div>
+{{ endblock }}

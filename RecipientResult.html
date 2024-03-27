@@ -1,0 +1,20 @@
+{{ block title }}
+    Ваш результат
+{{ endblock }}
+
+{% block content %}
+
+
+<div class="card" style="width: 25rem;">
+    <div class="card-header">
+    Благотворители сделали суммарные пожертвования в вашу пользу в размере: ${{player.sum_offer}}
+    </div>
+        <ul class="list-group list-group-flush">
+        <li class="list-group-item"> Ваш баланс: ${{player.set_payoff}} </li>
+        </ul>
+</div>
+
+<br>
+<br>
+    {{ next_button }}
+{{ endblock }}

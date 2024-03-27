@@ -1,0 +1,84 @@
+{{ block title }}
+    Описание эксперимента
+{{ endblock }}
+
+{% block content %}
+
+
+
+<div class="alert alert-info" xmlns="http://www.w3.org/1999/html">
+        Ваш код участника: {{participant.code}}. Запомните или запишите его, после эксперимента он может понадобиться.
+    </div>
+
+<div class="alert alert-info" xmlns="http://www.w3.org/1999/html">
+    Вы — потенциальный <strong>{{ player.role }}</strong>. Вам срочно необходима сумма $1000. За помощью вы обратились в
+    благотворительный фонд. Сейчас вам предстоит принять благотворительное пожертвование от вашего партнера.
+    Он не может покрыть всю сумму своим вкладом, однако может отдать вам часть своих денег.
+</div>
+
+
+<div class="alert alert-info" xmlns="http://www.w3.org/1999/html">
+            Ваш баланс: <strong>${{player.balance}}</strong>.
+</div>
+<br>
+
+{% if group.drugone %}
+    {% with partner=group.drugone %}
+        <div class="card" style="width: 25rem;">
+            <div class="card-header">
+            Информация о благотворителе №1:
+            </div>
+                <ul class="list-group list-group-flush">
+                <li class="list-group-item">Его имя: {{ partner.name }} {{ partner.surname }} </li>
+                <li class="list-group-item">Его возраст: {{ partner.age }}</li>
+                <li class="list-group-item">Его образовательная программа: {{ partner.program }}</li>
+                </ul>
+            </div>
+    {% endwith %}
+{% else %}
+    <div>Партнер не найден.</div>
+{% endif %}
+
+<br>
+
+{% if group.drugtwo %}
+    {% with partner=group.drugtwo %}
+        <div class="card" style="width: 25rem;">
+            <div class="card-header">
+            Информация о благотворителе №2:
+            </div>
+                <ul class="list-group list-group-flush">
+                <li class="list-group-item">Его имя: {{ partner.name }} {{ partner.surname }} </li>
+                <li class="list-group-item">Его возраст: {{ partner.age }}</li>
+                <li class="list-group-item">Его образовательная программа: {{ partner.program }}</li>
+                </ul>
+            </div>
+    {% endwith %}
+{% else %}
+    <div>Партнер не найден.</div>
+{% endif %}
+
+<br>
+
+{% if group.drugthree %}
+    {% with partner=group.drugthree %}
+        <div class="card" style="width: 25rem;">
+            <div class="card-header">
+            Информация о благотворителе №3:
+            </div>
+                <ul class="list-group list-group-flush">
+                <li class="list-group-item">Его имя: {{ partner.name }} {{ partner.surname }} </li>
+                <li class="list-group-item">Его возраст: {{ partner.age }}</li>
+                <li class="list-group-item">Его образовательная программа: {{ partner.program }}</li>
+                </ul>
+            </div>
+    {% endwith %}
+{% else %}
+    <div>Партнер не найден.</div>
+{% endif %}
+
+    {{ next_button }}
+{{ endblock }}
+
+
+
